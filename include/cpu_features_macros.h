@@ -59,7 +59,7 @@
 #define CPU_FEATURES_ARCH_MIPS
 #endif
 
-#if defined(__powerpc__)
+#if defined(__powerpc__) || defined(__POWERPC__)
 #define CPU_FEATURES_ARCH_PPC
 #endif
 
