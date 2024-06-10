@@ -33,6 +33,7 @@ typedef struct {
   int efpsingle : 1;
   int efpdouble : 1;
   int no_tb : 1;
+  int g5 : 1;
   int power4 : 1;
   int power5 : 1;
   int power5plus : 1;
@@ -68,9 +69,16 @@ typedef struct {
 
 typedef struct {
   PPCFeatures features;
+#if defined(CPU_FEATURES_OS_MACOS)
+  int cputype;
+  int cpusubtype;
+  int cpufamily;
+#endif
 } PPCInfo;
 
 PPCInfo GetPPCInfo(void);
+
+#if !defined(CPU_FEATURES_OS_MACOS)
 
 typedef struct {
   char platform[64];       // 0 terminated string
@@ -86,6 +94,8 @@ typedef struct {
 } PPCPlatformStrings;
 
 PPCPlatformStrings GetPPCPlatformStrings(void);
+
+#endif
 
 ////////////////////////////////////////////////////////////////////////////////
 // Introspection functions
@@ -103,6 +113,7 @@ typedef enum {
   PPC_HAS_EFP_SINGLE, /* SPE single precision fpu */
   PPC_HAS_EFP_DOUBLE, /* SPE double precision fpu */
   PPC_NO_TB,          /* No timebase */
+  PPC_G5,    /* G5 */
   PPC_POWER4,
   PPC_POWER5,
   PPC_POWER5_PLUS,

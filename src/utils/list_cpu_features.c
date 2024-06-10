@@ -413,6 +413,12 @@ static Node* CreateTree(void) {
   AddFlags(root, &info.features);
 #elif defined(CPU_FEATURES_ARCH_PPC)
   const PPCInfo info = GetPPCInfo();
+#if defined(CPU_FEATURES_OS_MACOS)
+  AddMapEntry(root, "arch", CreateString("ppc"));
+  AddMapEntry(root, "cputype", CreateInt(info.cputype));
+  AddMapEntry(root, "cpusubtype", CreateInt(info.cpusubtype));
+  AddMapEntry(root, "cpufamily", CreateInt(info.cpufamily));
+#else
   const PPCPlatformStrings strings = GetPPCPlatformStrings();
   AddMapEntry(root, "arch", CreateString("ppc"));
   AddMapEntry(root, "platform", CreateString(strings.platform));
@@ -422,6 +428,7 @@ static Node* CreateTree(void) {
   AddMapEntry(root, "instruction", CreateString(strings.type.platform));
   AddMapEntry(root, "microarchitecture",
               CreateString(strings.type.base_platform));
+#endif
   AddFlags(root, &info.features);
 #elif defined(CPU_FEATURES_ARCH_S390X)
   const S390XInfo info = GetS390XInfo();

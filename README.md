@@ -190,7 +190,7 @@ flags           : aes,avx,cx16,smx,sse4_1,sse4_2,ssse3
 |---------|:----:|:-------:|:-------:|:-------:|:-------:|:-------:|:---------:|:-------:|
 | Linux   | yes² | yes¹    | yes¹    | yes¹    | yes¹    | yes¹    | yes¹      | yes¹    |
 | FreeBSD | yes² | not yet | not yet | not yet | not yet | N/A     | not yet   | not yet |
-| MacOs   | yes² | yes⁵    | N/A     | N/A     | N/A     | N/A     | N/A       | N/A     |
+| MacOs   | yes² | yes⁵    | N/A     | N/A     | not yet⁵| N/A     | N/A       | N/A     |
 | Windows | yes² | not yet | not yet | N/A     | N/A     | N/A     | N/A       | N/A     |
 | Android | yes² | yes¹    | yes¹    | yes¹    | N/A     | N/A     | N/A       | N/A     |
 | iOS     | N/A  | not yet | not yet | N/A     | N/A     | N/A     | N/A       | N/A     |
